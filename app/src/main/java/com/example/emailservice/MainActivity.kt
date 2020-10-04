@@ -1,13 +1,15 @@
 package com.example.emailservice
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_new_email.view.*
+
 
 class MainActivity : AppCompatActivity() {
     private val items = ArrayList<Email>()
@@ -48,5 +50,10 @@ class MainActivity : AppCompatActivity() {
         mDialogView.dialogCancelBtn.setOnClickListener {
             mAlertDialog.dismiss()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
     }
 }
