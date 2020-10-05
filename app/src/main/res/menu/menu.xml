@@ -5,8 +5,7 @@
     tools:context=".MainActivity">
 
     <item
-        android:id="@+id/action_back"
-
+        android:id="@+id/action_remove"
         android:orderInCategory="100"
         app:showAsAction="always"
         android:title="Remover Duplicados" />

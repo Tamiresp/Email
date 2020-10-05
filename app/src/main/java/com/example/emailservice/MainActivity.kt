@@ -1,8 +1,10 @@
 package com.example.emailservice
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -54,6 +56,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_remove -> {
+                Intent(this, MyService::class.java).also { intent ->
+                    val bundle = Bundle()
+                    bundle.putSerializable("list", items)
+                    intent.putExtras(bundle)
+                    startService(intent)
+                }
+            }
+        }
         return true
     }
 }
